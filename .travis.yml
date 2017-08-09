@@ -13,6 +13,7 @@ env:
 cache:
   directories:
     - "node_modules"
+    - "$HOME/.cache/pip"
 before_install:
   # Travis CI has only shallow clone of the repository. We need to get the 'master' branch
   # so 'conventional-changelog-lint' could compare commits and lint them: marionebl/conventional-changelog-lint#7
