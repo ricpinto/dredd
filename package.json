@@ -10,15 +10,15 @@
     "node": ">= 4"
   },
   "scripts": {
-    "lint": "conventional-changelog-lint --from=master && npm run docs:lint && coffeelint src",
+    "lint": "coffeelint src",
+    "lint:docs": "sphinx-build -nW -b linkcheck docs docs/_build/",
+    "lint:commits": "conventional-changelog-lint --from=master",
     "build": "coffee -b -c -o lib/ src/",
-    "docs:lint": "sphinx-build -nW -b linkcheck docs docs/_build/",
-    "docs:build": "sphinx-build -nW -b html docs docs/_build/",
-    "docs:serve": "sphinx-autobuild docs docs/_build/",
-    "docs:install": "pip install -r docs/requirements.txt",
+    "build:docs": "sphinx-build -nW -b html docs docs/_build/",
     "pretest": "npm run build",
     "test": "mocha \"test/**/*-test.coffee\"",
     "test:coverage": "scripts/coverage.sh",
+    "start:docs": "sphinx-autobuild docs docs/_build/",
     "prepublish": "npm run build",
     "coveralls": "scripts/coveralls.sh",
     "semantic-release": "scripts/semantic-release.sh"

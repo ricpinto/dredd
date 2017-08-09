@@ -23,11 +23,15 @@ before_install:
 install: "npm install --no-optional"
 jobs:
   include:
-    - stage: "code/docs/commits quality checks"
+    - stage: "commits/code/docs quality checks"
       node_js: "6"
+      script: "npm run lint:commits"
+    - node_js: "6"
       script: "npm run lint"
     - node_js: "6"
-      script: "npm run docs:build"
+      script: "npm run lint:docs"
+    - node_js: "6"
+      script: "npm run build:docs"
     - stage: "tests & code coverage"
       node_js: "4"
       script: "npm run test:coverage && npm run coveralls"
