@@ -25,12 +25,16 @@ jobs:
   include:
     - stage: "commits/code/docs quality checks"
       node_js: "6"
+      env: ["JOB='commit message format check'"]
       script: "npm run lint:commits"
     - node_js: "6"
+      env: ["JOB='coffee script code quality check'"]
       script: "npm run lint"
     - node_js: "6"
+      env: ["JOB='check of external links in docs'"]
       script: "npm run lint:docs"
     - node_js: "6"
+      env: ["JOB='docs build'"]
       script: "npm run build:docs"
     - stage: "tests & code coverage"
       node_js: "4"
