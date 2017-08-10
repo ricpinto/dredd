@@ -138,6 +138,9 @@ describe('Babysitting Child Processes', ->
           runChildProcess('test/fixtures/scripts/stdout.coffee', (childProcess) ->
             childProcess[functionName]()
           , (err, info) ->
+            console.log('---------------------------')
+            console.log(JSON.stringify(info, null, 2))
+            console.log('---------------------------')
             processInfo = info
             done(err)
           )

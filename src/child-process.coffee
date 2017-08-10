@@ -141,6 +141,7 @@ spawn = (args...) ->
     )
 
   childProcess.on('exit', (exitStatus, signal) ->
+    console.log 'exit', arguments
     childProcess.terminated = true
     childProcess.killedIntentionally = killedIntentionally
     childProcess.terminatedIntentionally = terminatedIntentionally
